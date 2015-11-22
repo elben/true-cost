@@ -22,10 +22,15 @@ type Action = UpdateRate Rate
             | UpdatePrice Price
 
 init : Model
-init = { price = 10, rate = Monthly }
+init = { price = 50, rate = Monthly }
 
 update : Action -> Model -> Model
-update action model = model
+update action model =
+  case action of
+    UpdatePrice price ->
+      { model | price = price }
+    UpdateRate rate ->
+      { model | rate = rate }
 
 -- The address (aka update function) takes an action
 view : Signal.Address Action -> Model -> Html
@@ -35,10 +40,10 @@ view address model =
     , div [] [ text "of" ]
     , div [] [ text "your purchases" ]
     , div [ class "cost-container" ]
-        [ input [ type' "text", value "100" ] [] ]
+        [ input [ onKeyPress address (\keyChar -> UpdatePrice 10), type' "text", value (toString model.price) ] [] ]
     , div [ class "rate-container" ]
         [ span [ class "rate-choice once" ] [ text "once" ]
-        , span [ class "rate-choice monthly" ] [ text "monthly" ]
+        , span [ class "rate-choice monthly selected" ] [ text "monthly" ]
         , span [ class "rate-choice weekly" ] [ text "weekly" ]
         -- [ a [ href "#" ] [ span [ class "rate-choice once" ] [ text "once" ] ]
         -- , a [ href "#" ] [ span [ class "rate-choice weekly" ] [ text "weekly" ] ]
