@@ -2,9 +2,11 @@
 
 body {
   font-family: 'Vollkorn', serif;
+  font-family: 'Fira Sans', serif;
   font-size: 18px;
+  font-weight: 300;
   text-align: center;
-  color: #dcdbd9;
+  color: #999;
   background-color: #313131;
 }
 
@@ -13,6 +15,7 @@ h1, h2 {
 }
 
 h1 {
+  margin-top: 0;
   margin-bottom: -0.25em;
 }
 
@@ -24,13 +27,15 @@ h1 {
 }
 
 .cost-container {
-  padding-right: 0.4em;
+  padding-right: 0em;
 }
 
 .cost-container input {
   width: 100%;
   height: 1.5em;
   font-family: 'Vollkorn', serif;
+  font-family: 'Fira Sans', serif;
+  font-weight: 300;
   font-size: 2em;
   text-align: center;
   border-radius: 8px;
@@ -94,13 +99,14 @@ span.rate-choice:last-child {
 .true-cost-container {
   text-align: center;
   padding: 1em 0;
-  color: green;
+  color: #50bf32;
 }
 
 .true-cost-dollars {
   font-size: 3em;
+  font-weight: 700;
   line-height: 1em;
-  padding-bottom: 0.0em;
+  padding-bottom: 0.05em;
 }
 
 .true-cost-years {

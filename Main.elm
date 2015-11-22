@@ -139,8 +139,7 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ class "container" ]
     [ h1 [] [ text "The true cost" ]
-    , div [] [ text "of" ]
-    , div [] [ text "your purchases" ]
+    , div [] [ text "of your purchases" ]
     , div [ class "cost-container" ]
         -- On "input" change, send the input value to sendPriceUpdate (note how
         -- it's partially applied)
