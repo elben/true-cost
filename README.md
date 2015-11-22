@@ -15,6 +15,9 @@ And then open [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) t
 ```
 elm make Main.elm --output truecost.js
 open index.html
+
+elm repl
+import Main exposing (..)
 ```
 
 # Notes
