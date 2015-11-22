@@ -1,0 +1,11 @@
+.DS_Store
+
+# elm-package generated files
+elm-package.json
+elm-stuff/
+
+# elm-repl generated files
+repl-temp-*
+
+# elm-make compiled files
+truecost.js

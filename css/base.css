@@ -1,0 +1,98 @@
+
+
+body {
+  font-family: 'Vollkorn', serif;
+  font-size: 20px;
+  text-align: center;
+  color: #dcdbd9;
+  background-color: #313131;
+}
+
+h1, h2 {
+  font-size: 3em;
+}
+
+h1 {
+  margin-bottom: -0.25em;
+}
+
+.container {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cost-container {
+  padding-right: 0.4em;
+}
+
+.cost-container input {
+  width: 100%;
+  height: 1.5em;
+  font-family: 'Vollkorn', serif;
+  font-size: 3em;
+  text-align: center;
+  border-radius: 8px;
+  margin: 0.5em 0 0;
+  background-color: #595552;
+  color: #dcdbd9;
+  border: none;
+
+  line-height: 1.5em;
+
+  /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); */
+  /* box-shadow: inset 0 1px 1px rgba(0,0,0,.075); */
+
+  /* -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; */
+  /* transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; */
+}
+
+.cost-container input:focus {
+  outline: none;
+}
+
+
+.rate-container {
+  display: table;
+  padding-top: 1em;
+  width: 100%;
+}
+
+.rate-container > * {
+  display: table-cell;
+  width: 33.33333%;
+}
+
+span.rate-choice {
+  padding: 0.5em 1em;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  border-left: 2px solid #999;
+}
+
+span.rate-choice:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+span.rate-choice:last-child {
+  border-right: 2px solid #999;
+}
+
+.true-cost-container {
+  text-align: center;
+  padding: 1em;
+}
+
+.true-cost-dollars {
+  font-size: 3em;
+  padding-bottom: 0.3em;
+}
+
+.true-cost-years {
+  color: #999;
+}
+
+.footer {
+  color: #999;
+}
