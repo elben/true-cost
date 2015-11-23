@@ -38,7 +38,6 @@ type alias Model = { price : Price, rate : Rate }
 
 type Action = UpdateRate Rate
             | UpdatePrice Price
-            | Noop
 
 -- Calculate true cost for one-off purchases
 calculateTrueCost : Model -> Years -> Float
@@ -64,7 +63,7 @@ Which, generalized, is:
 -}
 sumOfTrueCost : Float -> Years -> Float
 sumOfTrueCost yearlyPrice years =
-  List.foldl (\y sum -> sum + yearlyPrice * (defaultRate ^ ((toFloat years) - (toFloat y)))) 0.0 [0..years-1]
+  List.foldl (\y sum -> sum + yearlyPrice * (defaultRate ^ (toFloat (years - y)))) 0.0 [0..years-1]
 
 initModel : Model
 initModel = { price = 50, rate = Monthly }
@@ -80,14 +79,13 @@ update action model =
       { model | price = price }
     UpdateRate rate ->
       { model | rate = rate }
-    Noop -> model
 
 -- Takes in an input value, grabs the number out of it, and sends an UpdatePrice
 -- signal to the address
 sendPriceUpdate : Signal.Address Action -> String -> Signal.Message
 sendPriceUpdate address str =
-  -- Strip out '$' with blank
-  let cleanStr = Regex.replace Regex.All (Regex.regex "[$]") (always "") str
+  -- Strip out '$' and commas with blank
+  let cleanStr = Regex.replace Regex.All (Regex.regex "[$,]") (always "") str
   in
     case String.toFloat cleanStr of
       Ok num -> Signal.message address (UpdatePrice num)
@@ -143,9 +141,11 @@ view address model =
     , div [ class "cost-container" ]
         -- On "input" change, send the input value to sendPriceUpdate (note how
         -- it's partially applied)
-        [ input [ on "input" targetValue (sendPriceUpdate address)
+        [ text "$"
+        , input [ on "input" targetValue (sendPriceUpdate address)
                 , type' "text"
-                , value ("$" ++ (toString model.price)) ]
+                , value (toString model.price)
+                ]
                 []
         ]
     , div [ class "rate-container" ]
@@ -168,6 +168,9 @@ view address model =
               [ text (displayPrice (calculateTrueCost model 30)) ]
         , div [ class "true-cost-years" ] [ text "30 years" ]
         ]
-    , div [ class "footer" ] [ text "Assuming 7% YOY gain" ]
+    , div [ class "footer" ]
+          [ p [] [text "Assuming 7% compounded"]
+          , p [] [text "Inspired by ", a [href "http://www.mrmoneymustache.com/2011/04/15/getting-started-3-eliminate-short-termitis-the-bankruptcy-disease/"] [text "MMM"] ]
+          ]
     ]
 
