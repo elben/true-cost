@@ -171,6 +171,7 @@ view address model =
     , div [ class "footer" ]
           [ p [] [text "Assuming 7% compounded"]
           , p [] [text "Inspired by ", a [href "http://www.mrmoneymustache.com/2011/04/15/getting-started-3-eliminate-short-termitis-the-bankruptcy-disease/"] [text "MMM"] ]
+          , p [] [text "Source code", a [href "http://www.mrmoneymustache.com/2011/04/15/getting-started-3-eliminate-short-termitis-the-bankruptcy-disease/"] [text "MMM"] ]
           ]
     ]
 

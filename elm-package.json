@@ -2,7 +2,7 @@
     "version": "1.0.0",
     "summary": "true cost of your purchases",
     "repository": "https://github.com/elben/true-cost.git",
-    "license": "BSD3",
+    "license": "MIT",
     "source-directories": [
         "."
     ],

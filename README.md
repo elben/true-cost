@@ -2,7 +2,7 @@
 
 ## Development
 
-(First [install Elm](http://elm-lang.org/install))
+First, [install Elm](http://elm-lang.org/install).
 
 ```bash
 elm repl
